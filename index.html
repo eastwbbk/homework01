@@ -2,9 +2,50 @@
 <html>
     <head lang="en">
         <meta charset="UTF-8">
-        <title></title>
+        <title>HomeWork01</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <script type="text/x-tmpl" id="form-element">
+            <div class="form-group">
+                <label for="number_{%=o.number%}">Number {%=o.number%}</label>
+                <input type="text" class="form-control" id="number_{%=o.number%}" placeholder="Number {%=o.number%}">
+            </div>
+        </script>
+        <script type="text/x-tmpl" id="form-buttons">
+            <button type="button" id="ok" class="btn btn-default">Ok</button>
+            <button type="button" id="generate" class="btn btn-default">Generate</button>
+        </script>
+        <script type="text/x-tmpl" id="sort-outer">
+            <h4>Click "Next" to see how bubble sort works</h4>
+            <span>Sorting is finished</span>
+            <div class="row">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+
+                    </div>
+                </div>
+            </div>
+            <button id="reset" type="button" class="btn btn-default">Reset</button>
+            <button id="next" type="button" class="btn btn-default">Next</button>
+        </script>
+        <script type="text/x-tmpl" id="sort-element">
+            <button id="element-{%=o.index%}" type="button" class="btn btn-default"></button>
+        </script>
     </head>
     <body>
+        <div class="container-fluid">
+            <div id="widget" class="row">
+                <div  class="col-md-4">
+                    <form>
+                        <h4>Input array elements</h4>
+                    </form>
+                    <div id="sort">
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script type="text/javascript" src="js/tmpl.min.js" ></script>
+        <script type="text/javascript" src="js/index.js" ></script>
     </body>
 </html>
