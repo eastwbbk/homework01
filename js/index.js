@@ -1,38 +1,38 @@
 (function($) {
     function BubbleSort() {
         this.numbers = null;
-        this.index1 = 0;
-        this.index2 = 0;
+        this.indexOuter = 0;
+        this.indexInner = 0;
         this.sortDone = false;
         this.change = false;
     }
     BubbleSort.prototype.setNumbers = function(numbers) {
         this.numbers = numbers;
-        this.index1 = 0;
-        this.index2 = 0;
+        this.indexOuter = 0;
+        this.indexInner = 0;
         this.change = false;
         this.sortDone = false;
     };
     BubbleSort.prototype.next = function() {
         this.change = false;
-        if (this.numbers[this.index2] > this.numbers[this.index2 + 1]) {
+        if (this.numbers[this.indexInner] > this.numbers[this.indexInner + 1]) {
             this.change = true;
-            var tmp = this.numbers[this.index2];
-            this.numbers[this.index2] = this.numbers[this.index2 + 1];
-            this.numbers[this.index2 + 1] = tmp;
+            var tmp = this.numbers[this.indexInner];
+            this.numbers[this.indexInner] = this.numbers[this.indexInner + 1];
+            this.numbers[this.indexInner + 1] = tmp;
         }
-        this.index2++;
-        if (this.index2 == this.numbers.length - 1 - this.index1) {
-            this.index2 = 0;
-            this.index1++;
+        this.indexInner++;
+        if (this.indexInner == this.numbers.length - 1 - this.indexOuter) {
+            this.indexInner = 0;
+            this.indexOuter++;
         }
-        if (this.index1 >= this.numbers.length - 1) {
+        if (this.indexOuter >= this.numbers.length - 1) {
             this.sortDone = true;
         }
     };
     BubbleSort.prototype.reset = function() {
-        this.index1 = 0;
-        this.index2 = 0;
+        this.indexOuter = 0;
+        this.indexInner = 0;
         this.sortDone = false;
         this.change = false;
     };
@@ -157,8 +157,8 @@
         }
     };
     Main.prototype.setSelection = function() {
-        $('#element-' + this.bubbleSort.index2).addClass('btn-success');
-        $('#element-' + (this.bubbleSort.index2 + 1)).addClass('btn-success');
+        $('#element-' + this.bubbleSort.indexInner).addClass('btn-success');
+        $('#element-' + (this.bubbleSort.indexInner + 1)).addClass('btn-success');
     };
     Main.prototype.refreshNumbers = function() {
         for(var i = 0; i < this.numbersCount; i++) {
